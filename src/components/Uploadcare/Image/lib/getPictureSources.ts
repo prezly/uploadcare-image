@@ -1,8 +1,8 @@
 import { MediaBreakpoints } from '../../constants';
 import { Options, Sizes } from '../../../../types';
+import getSizes from '../../lib/getSizes';
 import getImageMimeType from './getImageMimeType';
 import getSrcSet from './getSrcSet';
-import getSizes from './getSizes';
 import getFormats from './getFormats';
 
 const getPictureSources = (options: Options) => {

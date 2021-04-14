@@ -1,4 +1,5 @@
-.uploadcare-image__picture {
+.uploadcare-image__picture,
+.uploadcare-image__gif {
     display: block;
 }
 

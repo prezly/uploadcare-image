@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { UploadcareImage } from '../Uploadcare';
+import { UploadcareImage, UploadcareGif } from '../Uploadcare';
 import { UploadcareImageProps } from '../../types';
 import getImageExtension from './lib/getImageExtension';
 
@@ -16,7 +16,9 @@ const Image: FunctionComponent<Props> = (props) => {
 
     // If it's a gif image then show it as a video, using Uploadcare's gif2video transformation
     if (extension === 'gif') {
-        // To be implemented
+        return (
+            <UploadcareGif {...props} />
+        )
     }
 
     // By default fallback to UploadcareImage with webp/png result formats

@@ -1,4 +1,5 @@
 export type ImageExtension = 'svg' | 'jpeg' | 'webp' | 'png' | 'jpg' | 'gif';
+export type VideoExtension = 'mp4' | 'webm';
 
 export type Options = Pick<ImageSourceProps, 'src' | 'imageDetails'> &
     Pick<ImageLayoutProps, 'layout' | 'objectFit' | 'objectPosition' | 'sizes'> &
