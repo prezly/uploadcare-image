@@ -27,9 +27,15 @@ export type UploadcareEffectOptions = Pick<Options, 'width' | 'height' | 'imageD
 
 export type UploadcareEffect = string | ((options: UploadcareEffectOptions) => string);
 
-export type UploadcareImageDetails = Record<string, any> & {
+export type UploadcareImageDetails = {
+    uuid: string;
+    version: number;
+    filename: string;
+    size: number;
+    mime_type: string,
     original_width: number;
     original_height: number;
+    effects: Array<string>;
 };
 
 type ImageSourceProps =
