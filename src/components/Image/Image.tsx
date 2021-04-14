@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
 import { UploadcareImage } from '../Uploadcare';
-import { ImageExtension, UploadcareImageProps } from '../../types';
+import { UploadcareImageProps } from '../../types';
+import getImageExtension from './lib/getImageExtension';
 
 export type Props = UploadcareImageProps;
 
 const Image: FunctionComponent<Props> = (props) => {
-    const { filename, src } = props;
-
-    const extension = (src || filename)?.split('?')[0].match(/\.(?<extension>\w+)$/)?.groups
-        ?.extension as ImageExtension | null;
+    const extension = getImageExtension(props);
 
     // If it's a svg then there is no need for responsive image
     if (extension === 'svg') {
