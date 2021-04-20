@@ -3,7 +3,7 @@ import effect from '../../lib/effects';
 import getSizes from '../../lib/getSizes';
 import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
 
-const VIDEO_FORMATS: VideoExtension[] = ['mp4', 'webm'];
+const VIDEO_FORMATS: VideoExtension[] = ['webm', 'mp4'];
 
 const getGifSources = (options: Options) => {
     const { imageDetails, filename, src, effects = [], width } = options;
