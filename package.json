@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/prezly/slate#readme",
   "scripts": {
+    "clean": "rimraf build/ node_modules/",
     "copy-styles": "npx cp ./src/styles/styles.css ./build/styles.css",
     "build-js": "tsc --project .",
-    "build": "npm run build-js && npm run copy-styles"
+    "build": "npm run build-js && npm run copy-styles",
+    "release": "npm run release:prepare && npm run release:publish",
+    "release:prepare": "npm run clean && npm install && npm run build",
+    "release:publish": "np --no-2fa"
   },
   "peerDependencies": {
     "react": "*",
@@ -28,6 +32,8 @@
   },
   "devDependencies": {
     "@types/react": "^17.0.3",
+    "np": "^7.4.0",
+    "rimraf": "^3.0.2",
     "typescript": "^4.1.3"
   }
 }
