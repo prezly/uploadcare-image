@@ -1,9 +1,9 @@
 import { Options } from '../../../../types';
-import effect from './effects';
+import effect from '../../lib/effects';
+import getSizes from '../../lib/getSizes';
+import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
 import getFormats from './getFormats';
-import getSizes from './getSizes';
 import getSrcSet from './getSrcSet';
-import prepareUploadcareUrl from './prepareUploadcareUrl';
 
 const getPictureImageDetails = (options: Options) => {
     const { imageDetails, filename, src, defaultFormat, effects = [], width } = options;

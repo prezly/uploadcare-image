@@ -1,14 +1,12 @@
 import React, { FunctionComponent } from 'react';
-import { UploadcareImage } from '../Uploadcare';
-import { ImageExtension, UploadcareImageProps } from '../../types';
+import { UploadcareImage, UploadcareGif } from '../Uploadcare';
+import { UploadcareImageProps } from '../../types';
+import getImageExtension from './lib/getImageExtension';
 
 export type Props = UploadcareImageProps;
 
 const Image: FunctionComponent<Props> = (props) => {
-    const { filename, src } = props;
-
-    const extension = (src || filename)?.split('?')[0].match(/\.(?<extension>\w+)$/)?.groups
-        ?.extension as ImageExtension | null;
+    const extension = getImageExtension(props);
 
     // If it's a svg then there is no need for responsive image
     if (extension === 'svg') {
@@ -18,7 +16,9 @@ const Image: FunctionComponent<Props> = (props) => {
 
     // If it's a gif image then show it as a video, using Uploadcare's gif2video transformation
     if (extension === 'gif') {
-        // To be implemented
+        return (
+            <UploadcareGif {...props} />
+        )
     }
 
     // By default fallback to UploadcareImage with webp/png result formats

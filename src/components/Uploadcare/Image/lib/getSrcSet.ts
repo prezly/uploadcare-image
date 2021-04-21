@@ -1,5 +1,5 @@
-import prepareUploadcareUrl from './prepareUploadcareUrl';
-import effect from './effects';
+import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import effect from '../../lib/effects';
 import { ImageExtension, Options } from '../../../../types';
 
 type Parameters = Pick<Options, 'imageDetails' | 'filename' | 'src' | 'effects'> & {

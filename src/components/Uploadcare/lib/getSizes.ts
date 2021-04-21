@@ -1,5 +1,5 @@
-import { Options, SizesWithDefault } from '../../../../types';
-import { Breakpoint } from '../../constants';
+import { Options, SizesWithDefault } from '../../../types';
+import { Breakpoint } from '../constants';
 
 const DEFAULT_SIZES: SizesWithDefault = {
     mobile: Breakpoint.SM,

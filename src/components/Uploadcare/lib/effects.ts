@@ -1,4 +1,4 @@
-import { ImageExtension } from '../../../../types';
+import { ImageExtension, VideoExtension } from '../../../types';
 
 const MAX_WIDTH = 3000;
 const MAX_HEIGHT = 3000;
@@ -29,7 +29,7 @@ export const crop = (width: number, height: number) => {
     return `/crop/${safeWidth}x${safeHeight}/`;
 };
 
-export const format = (format: ImageExtension) => `/format/${format}/`;
+export const format = (format: ImageExtension | VideoExtension | 'auto') => `/format/${format}/`;
 
 export const grayscale = () => '/grayscale/';
 
