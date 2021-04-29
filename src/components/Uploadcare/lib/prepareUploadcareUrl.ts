@@ -36,6 +36,7 @@ const prepareUploadcareMediaProxyUrl = (options: PrepareUrlProps) => {
 
 const prepareUploadcareUrl = (options: PrepareUrlProps) => {
     const { imageDetails, src, filename, effects, isGif2Video } = options;
+    const mergedEffects = [...(imageDetails?.effects || []), ...effects];
 
     // if external image, use media-proxy
     if (src) {
@@ -46,7 +47,9 @@ const prepareUploadcareUrl = (options: PrepareUrlProps) => {
         UPLOADCARE_CDN_URL,
         imageDetails!.uuid,
         isGif2Video && UPLOADCARE_GIF2VIDEO_PATH,
-        effects.length === 0 ? effects : ['', ...handleEffects(options)].join('-'),
+        mergedEffects.length === 0
+            ? mergedEffects
+            : ['', ...handleEffects({ ...options, effects: mergedEffects })].join('-'),
         filename,
     ]
         .filter(Boolean)
