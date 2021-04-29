@@ -1,23 +1,13 @@
-import prepareUploadcareUrl from "../../lib/prepareUploadcareUrl";
-import effect from "../../lib/effects";
-import { ImageExtension, Options } from "../../../../types";
+import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import effect from '../../lib/effects';
+import { ImageExtension, Options } from '../../../../types';
 
-type Parameters = Pick<
-    Options,
-    "imageDetails" | "filename" | "src" | "effects"
-> & {
+type Parameters = Pick<Options, 'imageDetails' | 'filename' | 'src' | 'effects'> & {
     size: number;
     format: ImageExtension;
 };
 
-const getSrcSet = ({
-    imageDetails,
-    filename,
-    src,
-    size,
-    format,
-    effects = [],
-}: Parameters) => {
+const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: Parameters) => {
     const defaultImageUrl = prepareUploadcareUrl({
         width: size,
         imageDetails,

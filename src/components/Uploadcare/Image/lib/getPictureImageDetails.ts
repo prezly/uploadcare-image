@@ -1,19 +1,12 @@
-import { Options } from "../../../../types";
-import effect from "../../lib/effects";
-import getSizes from "../../lib/getSizes";
-import prepareUploadcareUrl from "../../lib/prepareUploadcareUrl";
-import getFormats from "./getFormats";
-import getSrcSet from "./getSrcSet";
+import { Options } from '../../../../types';
+import effect from '../../lib/effects';
+import getSizes from '../../lib/getSizes';
+import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import getFormats from './getFormats';
+import getSrcSet from './getSrcSet';
 
 const getPictureImageDetails = (options: Options) => {
-    const {
-        imageDetails,
-        filename,
-        src,
-        defaultFormat,
-        effects = [],
-        width,
-    } = options;
+    const { imageDetails, filename, src, defaultFormat, effects = [], width } = options;
 
     const sizes = getSizes(options);
 
@@ -34,11 +27,7 @@ const getPictureImageDetails = (options: Options) => {
             imageDetails,
             src,
             filename,
-            effects: [
-                ...effects,
-                effect.resize(width || sizes.default),
-                effect.format(format),
-            ],
+            effects: [...effects, effect.resize(width || sizes.default), effect.format(format)],
         }),
     };
 };

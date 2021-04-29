@@ -1,7 +1,7 @@
-import { Options } from "../../../../types";
-import effect from "../../lib/effects";
-import getSizes from "../../lib/getSizes";
-import prepareUploadcareUrl from "../../lib/prepareUploadcareUrl";
+import { Options } from '../../../../types';
+import effect from '../../lib/effects';
+import getSizes from '../../lib/getSizes';
+import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
 
 const getGifPoster = (options: Options) => {
     const { imageDetails, filename, src, effects = [], width } = options;
@@ -13,7 +13,7 @@ const getGifPoster = (options: Options) => {
         imageDetails,
         src,
         filename,
-        effects: [...effects, effect.format("png"), effect.format("auto")],
+        effects: [...effects, effect.format('png'), effect.format('auto')],
     });
 };
 
