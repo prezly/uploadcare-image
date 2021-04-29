@@ -13,7 +13,7 @@ const getGifPoster = (options: Options) => {
         imageDetails,
         src,
         filename,
-        effects: [effect.format('png'), effect.format('auto'), ...effects],
+        effects: [...effects, effect.format('png'), effect.format('auto')],
     });
 };
 

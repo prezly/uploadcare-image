@@ -19,8 +19,8 @@ const getGifSources = (options: Options) => {
             imageDetails,
             src,
             filename,
-            effects: [effect.format(format), ...effects],
-        })
+            effects: [...effects, effect.format(format)],
+        }),
     }));
 };
 

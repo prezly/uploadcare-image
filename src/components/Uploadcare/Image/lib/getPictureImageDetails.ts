@@ -27,7 +27,7 @@ const getPictureImageDetails = (options: Options) => {
             imageDetails,
             src,
             filename,
-            effects: [effect.resize(width || sizes.default), effect.format(format), ...effects],
+            effects: [...effects, effect.resize(width || sizes.default), effect.format(format)],
         }),
     };
 };

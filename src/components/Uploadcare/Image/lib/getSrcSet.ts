@@ -13,14 +13,14 @@ const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: 
         imageDetails,
         filename,
         src,
-        effects: [effect.resize(size), effect.format(format), ...effects],
+        effects: [...effects, effect.resize(size), effect.format(format)],
     });
     const retinaImageUrl = prepareUploadcareUrl({
         width: size * 2,
         imageDetails,
         filename,
         src,
-        effects: [effect.resize(size * 2), effect.format(format), ...effects],
+        effects: [...effects, effect.resize(size * 2), effect.format(format)],
     });
 
     return `${defaultImageUrl} 1x, ${retinaImageUrl} 2x`;
