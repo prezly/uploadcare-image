@@ -46,7 +46,11 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
 
             <img
                 {...imageSize}
-                className={classNames(className, layout === 'fill' && 'uploadcare-image__layout-fill')}
+                className={classNames(
+                    className, 
+                    'uploadcare-image__image', 
+                    layout === 'fill' && 'uploadcare-image__layout-fill'
+                )}
                 loading={lazy ? 'lazy' : 'eager'}
                 alt={alt}
                 style={imageStyle}
