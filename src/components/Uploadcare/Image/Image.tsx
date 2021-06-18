@@ -33,6 +33,8 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
               };
     const imageSize = getEffectiveImageSize(width, height, imageDetails);
 
+    const altText = alt || imageDetails?.filename;
+
     return (
         <picture className={classNames('uploadcare-image__picture', containerClassName)}>
             {sources.map((source) => (
@@ -52,7 +54,7 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
                     layout === 'fill' && 'uploadcare-image__layout-fill'
                 )}
                 loading={lazy ? 'lazy' : 'eager'}
-                alt={alt}
+                alt={altText}
                 style={imageStyle}
                 src={image.src}
             />
