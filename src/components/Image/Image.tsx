@@ -1,5 +1,6 @@
 import React, { FunctionComponent } from 'react';
-import { UploadcareImage, UploadcareGif } from '../Uploadcare';
+
+import { UploadcareImage, UploadcareGif, UploadcareSvg } from '../Uploadcare';
 import { UploadcareImageProps } from '../../types';
 import getImageExtension from './lib/getImageExtension';
 
@@ -10,8 +11,9 @@ const Image: FunctionComponent<Props> = (props) => {
 
     // If it's a svg then there is no need for responsive image
     if (extension === 'svg') {
-        const { sizes, objectFit, layout, lazy, containerClassName, ...imgProps } = props;
-        return <img {...imgProps} loading={lazy ? 'lazy' : 'eager'} />;
+        return (
+            <UploadcareSvg {...props} />
+        );
     }
 
     // If it's a gif image then show it as a video, using Uploadcare's gif2video transformation
