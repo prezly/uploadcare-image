@@ -19,7 +19,7 @@
   "homepage": "https://github.com/prezly/uploadcare-image#readme",
   "scripts": {
     "clean": "rimraf build/ node_modules/",
-    "copy-styles": "npx cp ./src/styles/styles.css ./build/styles.css",
+    "copy-styles": "cp ./src/styles/styles.css ./build/styles.css",
     "build-js": "tsc --project .",
     "build": "npm run build-js && npm run copy-styles",
     "release": "npm run release:prepare && npm run release:publish",
