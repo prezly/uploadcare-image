@@ -22,6 +22,7 @@
     "copy-styles": "cp ./src/styles/styles.css ./build/styles.css",
     "build-js": "tsc --project .",
     "build": "npm run build-js && npm run copy-styles",
+    "test": "echo \"Tests? maybe next time ;)\" && exit 0",
     "release": "npm run release:prepare && npm run release:publish",
     "release:prepare": "npm run clean && npm install && npm run build",
     "release:publish": "np --no-2fa"
