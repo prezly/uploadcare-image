@@ -17,8 +17,10 @@ export type Sizes = Partial<{
     desktopXl: Width;
     notDesktopXl: Width;
     allDesktops: Width;
-    default: Width;
+    default?: Width;
 }>;
+
+export type BreakpointName = keyof Sizes;
 
 export type SizesWithDefault = Sizes & {
     default: Width;
