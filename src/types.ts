@@ -1,8 +1,8 @@
 export type ImageExtension = 'svg' | 'jpeg' | 'webp' | 'png' | 'jpg' | 'gif';
 export type VideoExtension = 'mp4' | 'webm';
 
-export type Options = Pick<ImageSourceProps, 'src' | 'imageDetails'> &
-    Pick<ImageLayoutProps, 'layout' | 'objectFit' | 'objectPosition' | 'sizes'> &
+export type Options = Pick<ImageSourceProps, 'src' | 'imageDetails' | 'secondarySrc' | 'secondaryImageDetails'> &
+    Pick<ImageLayoutProps, 'layout' | 'objectFit' | 'objectPosition' | 'sizes' | 'secondaryImageBreakpoints'> &
     Pick<BaseProps, 'width' | 'height' | 'effects' | 'defaultFormat' | 'formats' | 'filename'>;
 
 type Width = number;
@@ -44,11 +44,21 @@ export type UploadcareImageDetails = {
 type ImageSourceProps =
     | {
           src: string;
+          /**
+           * This prop only works in conjunction with `secondaryImageBreakpoints` prop. See its description for details.
+           */
+          secondarySrc?: string;
           imageDetails?: never;
+          secondaryImageDetails?: never;
       }
     | {
           src?: never;
+          secondarySrc?: never;
           imageDetails: UploadcareImageDetails;
+          /**
+           * This prop only works in conjunction with `secondaryImageBreakpoints` prop. See its description for details.
+           */
+          secondaryImageDetails?: UploadcareImageDetails;
       };
 
 type ImageLayoutProps =
@@ -60,12 +70,20 @@ type ImageLayoutProps =
            * Sizes used to generate sources for different screen resolutions
            */
           sizes?: Sizes;
+          /**
+           * This only takes effect if `secondarySrc` or `secondaryImageDetails` props is provided.
+           * For the selected breakpoints, secondary image will be loaded instead of the primary one.
+           * This is useful if you need an alternative image for different screens,
+           * but don't want the browser to download both images all the time.
+           */
+          secondaryImageBreakpoints?: BreakpointName[];
       }
     | {
           layout: 'fixed';
           objectFit?: never;
           objectPosition?: never;
           sizes?: never;
+          secondaryImageBreakpoints?: never;
       };
 
 type BaseProps = {
