@@ -21,6 +21,7 @@
     "clean": "rimraf build/ node_modules/",
     "copy-styles": "cp ./src/styles/styles.css ./build/styles.css",
     "build-js": "tsc --project .",
+    "watch": "tsc --project . --watch",
     "build": "npm run build-js && npm run copy-styles",
     "test": "echo \"Tests? maybe next time ;)\" && exit 0",
     "release": "npm run release:prepare && npm run release:publish",
