@@ -1,24 +1,30 @@
 import { MediaBreakpoints } from '../../constants';
-import { Options, Sizes } from '../../../../types';
+import { BreakpointName, Options } from '../../../../types';
 import getSizes from '../../lib/getSizes';
 import getImageMimeType from './getImageMimeType';
 import getSrcSet from './getSrcSet';
 import getFormats from './getFormats';
 
 const getPictureSources = (options: Options) => {
-    const { imageDetails, filename, src, effects } = options;
+    const { imageDetails, secondaryImageDetails, filename, src, secondarySrc, effects, secondaryImageBreakpoints } = options;
 
     const formats = getFormats(options);
     const sizes = getSizes(options);
 
+    const sizeEntries = Object.entries(sizes) as Array<[BreakpointName | 'default', number]>;
+
     return formats.flatMap((format) => {
-        const entries = Object.entries(sizes) as Array<[keyof Sizes, number]>;
-        return entries.map(([breakpoint, size]) => ({
-            id: `${format}-${breakpoint}-${size}`,
-            type: getImageMimeType(format),
-            media: MediaBreakpoints[breakpoint],
-            srcSet: getSrcSet({ imageDetails, filename, src, size: size!, effects, format }),
-        }));
+        return sizeEntries.map(([breakpoint, size]) => {
+            const selectedImageDetails = secondaryImageDetails && secondaryImageBreakpoints?.includes(breakpoint) ? secondaryImageDetails : imageDetails;
+            const selectedSrc = secondarySrc && secondaryImageBreakpoints?.includes(breakpoint) ? secondarySrc : src;
+
+            return {
+                id: `${format}-${breakpoint}-${size}`,
+                type: getImageMimeType(format),
+                media: MediaBreakpoints[breakpoint],
+                srcSet: getSrcSet({ imageDetails: selectedImageDetails, filename, src: selectedSrc, size: size!, effects, format }),
+            };
+        });
     });
 };
 

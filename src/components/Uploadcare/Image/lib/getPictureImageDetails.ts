@@ -3,7 +3,6 @@ import effect from '../../lib/effects';
 import getSizes from '../../lib/getSizes';
 import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
 import getFormats from './getFormats';
-import getSrcSet from './getSrcSet';
 
 const getPictureImageDetails = (options: Options) => {
     const { imageDetails, filename, src, defaultFormat, effects = [], width } = options;
@@ -14,14 +13,6 @@ const getPictureImageDetails = (options: Options) => {
     const format = defaultFormat || formats[0];
 
     return {
-        srcSet: getSrcSet({
-            imageDetails,
-            filename,
-            src,
-            format: format,
-            size: width || sizes.default,
-            effects: effects,
-        }),
         src: prepareUploadcareUrl({
             width: width || sizes.default,
             imageDetails,

@@ -1,4 +1,4 @@
-import { Sizes } from '../../types';
+import { BreakpointName } from '../../types';
 
 export enum Breakpoint {
     XS = 576,
@@ -12,7 +12,7 @@ const respondAbove = (breakpoint: Breakpoint) => `(min-width: ${breakpoint}px)`;
 const respondBetween = (lower: Breakpoint, upper: Breakpoint) =>
     `(min-width: ${lower}px) and (max-width: ${upper - 1}px)`;
 
-export const MediaBreakpoints: Record<keyof Sizes, string> = {
+export const MediaBreakpoints: Record<BreakpointName | 'default', string> = {
     mobile: respondBetween(1, Breakpoint.SM),
     tablet: respondBetween(Breakpoint.SM, Breakpoint.MD),
     notMobile: respondAbove(Breakpoint.SM),
@@ -25,7 +25,7 @@ export const MediaBreakpoints: Record<keyof Sizes, string> = {
     default: '',
 };
 
-export const DefaultImageSize: Record<keyof Sizes, number> = {
+export const DefaultImageSize: Record<BreakpointName | 'default', number> = {
     mobile: Breakpoint.SM,
     tablet: Breakpoint.MD,
     notMobile: Breakpoint.LG,
