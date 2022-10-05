@@ -26,10 +26,6 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
             : {
                   objectFit,
                   objectPosition,
-                  maxHeight: height,
-                  maxWidth: width,
-                  minHeight: height,
-                  minWidth: width,
               };
     const imageSize = getEffectiveImageSize(width, height, imageDetails);
 
@@ -49,9 +45,9 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
             <img
                 {...imageSize}
                 className={classNames(
-                    className, 
-                    'uploadcare-image__image', 
-                    layout === 'fill' && 'uploadcare-image__layout-fill'
+                    className,
+                    'uploadcare-image__image',
+                    layout === 'fill' && 'uploadcare-image__layout-fill',
                 )}
                 loading={lazy ? 'lazy' : 'eager'}
                 alt={altText}
