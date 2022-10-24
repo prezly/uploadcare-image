@@ -1,8 +1,14 @@
 export type ImageExtension = 'svg' | 'jpeg' | 'webp' | 'png' | 'jpg' | 'gif';
 export type VideoExtension = 'mp4' | 'webm';
 
-export type Options = Pick<ImageSourceProps, 'src' | 'imageDetails' | 'secondarySrc' | 'secondaryImageDetails'> &
-    Pick<ImageLayoutProps, 'layout' | 'objectFit' | 'objectPosition' | 'sizes' | 'secondaryImageBreakpoints'> &
+export type Options = Pick<
+    ImageSourceProps,
+    'src' | 'imageDetails' | 'secondarySrc' | 'secondaryImageDetails'
+> &
+    Pick<
+        ImageLayoutProps,
+        'layout' | 'objectFit' | 'objectPosition' | 'sizes' | 'secondaryImageBreakpoints'
+    > &
     Pick<BaseProps, 'width' | 'height' | 'effects' | 'defaultFormat' | 'formats' | 'filename'>;
 
 type Width = number;
@@ -35,7 +41,7 @@ export type UploadcareImageDetails = {
     version: number;
     filename: string;
     size: number;
-    mime_type: string,
+    mime_type: string;
     original_width: number;
     original_height: number;
     effects: Array<string>;

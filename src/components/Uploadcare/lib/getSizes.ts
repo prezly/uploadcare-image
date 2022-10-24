@@ -1,4 +1,4 @@
-import { Options, SizesWithDefault } from '../../../types';
+import type { Options, SizesWithDefault } from '../../../types';
 import { Breakpoint } from '../constants';
 
 const DEFAULT_SIZES: SizesWithDefault = {

@@ -1,7 +1,8 @@
-import { Options } from '../../../../types';
+import type { Options } from '../../../../types';
 import effect from '../../lib/effects';
 import getSizes from '../../lib/getSizes';
 import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+
 import getFormats from './getFormats';
 
 const getPictureImageDetails = (options: Options) => {

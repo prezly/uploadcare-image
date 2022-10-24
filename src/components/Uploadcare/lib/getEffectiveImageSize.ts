@@ -1,4 +1,4 @@
-import { UploadcareImageDetails } from '../../../types';
+import type { UploadcareImageDetails } from '../../../types';
 
 const FALLBACK_SIZE = 5;
 

@@ -1,9 +1,12 @@
-import React, { FunctionComponent } from 'react';
-import { UploadcareImageProps } from '../../../types';
+import type { FunctionComponent } from 'react';
+import React from 'react';
+
 import classNames from '../../../lib/classNames';
+import type { UploadcareImageProps } from '../../../types';
 import getEffectiveImageSize from '../lib/getEffectiveImageSize';
-import getGifSources from './lib/getGifSources';
+
 import getGifPoster from './lib/getGifPoster';
+import getGifSources from './lib/getGifSources';
 
 const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
     const {
@@ -24,17 +27,17 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
         layout === 'fixed'
             ? undefined
             : {
-                objectFit,
-                objectPosition,
-                maxHeight: height,
-                maxWidth: width,
-                minHeight: height,
-                minWidth: width,
-            };
+                  objectFit,
+                  objectPosition,
+                  maxHeight: height,
+                  maxWidth: width,
+                  minHeight: height,
+                  minWidth: width,
+              };
     const videoSize = getEffectiveImageSize(width, height, imageDetails);
 
     return (
-        <video 
+        <video
             {...videoSize}
             className={classNames(
                 'uploadcare-image__gif',
@@ -43,9 +46,9 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
             )}
             poster={poster}
             style={imageStyle}
-            autoPlay 
-            loop 
-            muted 
+            autoPlay
+            loop
+            muted
             playsInline
         >
             {sources.map((source) => (

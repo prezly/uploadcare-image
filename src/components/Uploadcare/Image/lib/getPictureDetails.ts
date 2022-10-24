@@ -1,4 +1,5 @@
-import { Options, PictureDetails } from '../../../../types';
+import type { Options, PictureDetails } from '../../../../types';
+
 import getPictureImageDetails from './getPictureImageDetails';
 import getPictureSources from './getPictureSources';
 

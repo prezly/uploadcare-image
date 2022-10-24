@@ -1,4 +1,4 @@
-import { BreakpointName } from '../../types';
+import type { BreakpointName } from '../../types';
 
 export enum Breakpoint {
     XS = 576,

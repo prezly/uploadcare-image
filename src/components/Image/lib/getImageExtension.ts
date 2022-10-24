@@ -1,4 +1,4 @@
-import { ImageExtension, Options } from '../../../types';
+import type { ImageExtension, Options } from '../../../types';
 
 const getImageExtension = (options: Options) => {
     const { src, imageDetails, filename } = options;

@@ -1,4 +1,5 @@
-import { Options, UploadcareEffect, UploadcareEffectOptions } from '../../../types';
+import type { Options, UploadcareEffect, UploadcareEffectOptions } from '../../../types';
+
 import fixExternalImageSrc from './fixExternalImageSrc';
 
 type PrepareUrlProps = UploadcareEffectOptions &

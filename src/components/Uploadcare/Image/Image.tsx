@@ -1,8 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import { UploadcareImageProps } from '../../../types';
-import { getPictureDetails } from './lib';
+import type { FunctionComponent } from 'react';
+import React from 'react';
+
 import classNames from '../../../lib/classNames';
+import type { UploadcareImageProps } from '../../../types';
 import getEffectiveImageSize from '../lib/getEffectiveImageSize';
+
+import { getPictureDetails } from './lib';
 
 const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
     const {

@@ -1,4 +1,4 @@
-import { Options, VideoExtension } from '../../../../types';
+import type { Options, VideoExtension } from '../../../../types';
 import effect from '../../lib/effects';
 import getSizes from '../../lib/getSizes';
 import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';

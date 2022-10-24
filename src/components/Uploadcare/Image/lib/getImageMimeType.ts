@@ -1,4 +1,4 @@
-import { ImageExtension } from '../../../../types';
+import type { ImageExtension } from '../../../../types';
 
 const getImageMimeType = (extension: ImageExtension) => {
     switch (extension) {

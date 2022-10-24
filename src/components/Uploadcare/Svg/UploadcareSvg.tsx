@@ -1,20 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import type { FunctionComponent } from 'react';
+import React from 'react';
 
 import classNames from '../../../lib/classNames';
-import { UploadcareImageProps } from '../../../types';
+import type { UploadcareImageProps } from '../../../types';
 import { getPictureDetails } from '../Image/lib';
 
 const UploadcareSvg: FunctionComponent<UploadcareImageProps> = (props) => {
-    const {
-        className,
-        alt,
-        layout,
-        objectFit,
-        width,
-        height,
-        objectPosition,
-        lazy,
-    } = props;
+    const { className, alt, layout, objectFit, width, height, objectPosition, lazy } = props;
 
     const { image } = getPictureDetails(props);
     const imageStyle =
