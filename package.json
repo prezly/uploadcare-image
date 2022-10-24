@@ -24,18 +24,27 @@
     "watch": "tsc --project . --watch",
     "build": "npm run build-js && npm run copy-styles",
     "test": "echo \"Tests? maybe next time ;)\" && exit 0",
+    "typecheck": "tsc --noEmit --incremental --project .",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix",
+    "prettier": "prettier --check './**/*.(js|ts|tsx|css)'",
+    "prettier:fix": "npm run prettier -- --write --no-list-different",
+    "check": "npm run lint && npm run typecheck",
     "release": "npm run release:prepare && npm run release:publish",
     "release:preview": "npm run release:prepare && np prerelease --any-branch --no-release-draft --tag=preview",
-    "release:prepare": "npm run clean && npm install && npm run build",
-    "release:publish": "np --no-2fa"
+    "release:prepare": "npm run clean && npm install && npm run check && npm run build",
+    "release:publish": "np"
   },
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"
   },
   "devDependencies": {
+    "@prezly/eslint-config": "^4.2.0",
     "@types/react": "^17.0.3",
+    "eslint": "^8.26.0",
     "np": "^7.4.0",
+    "prettier": "^2.7.1",
     "rimraf": "^3.0.2",
     "typescript": "^4.1.3"
   }
