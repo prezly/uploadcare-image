@@ -1,0 +1,1 @@
+export { getImageExtension } from './getImageExtension';

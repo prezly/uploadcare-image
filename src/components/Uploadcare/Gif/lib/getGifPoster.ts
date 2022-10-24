@@ -1,9 +1,7 @@
 import type { Options } from '../../../../types';
-import effect from '../../lib/effects';
-import getSizes from '../../lib/getSizes';
-import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import { effects as effect, getSizes, prepareUploadcareUrl } from '../../lib';
 
-const getGifPoster = (options: Options) => {
+export function getGifPoster(options: Options) {
     const { imageDetails, filename, src, effects = [], width } = options;
 
     const sizes = getSizes(options);
@@ -15,6 +13,4 @@ const getGifPoster = (options: Options) => {
         filename,
         effects: [...effects, effect.format('png'), effect.format('auto')],
     });
-};
-
-export default getGifPoster;
+}

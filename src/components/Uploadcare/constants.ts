@@ -8,9 +8,12 @@ export enum Breakpoint {
     XL = 1920,
 }
 
-const respondAbove = (breakpoint: Breakpoint) => `(min-width: ${breakpoint}px)`;
-const respondBetween = (lower: Breakpoint, upper: Breakpoint) =>
-    `(min-width: ${lower}px) and (max-width: ${upper - 1}px)`;
+function respondAbove(breakpoint: Breakpoint) {
+    return `(min-width: ${breakpoint}px)`;
+}
+function respondBetween(lower: Breakpoint, upper: Breakpoint) {
+    return `(min-width: ${lower}px) and (max-width: ${upper - 1}px)`;
+}
 
 export const MediaBreakpoints: Record<BreakpointName | 'default', string> = {
     mobile: respondBetween(1, Breakpoint.SM),

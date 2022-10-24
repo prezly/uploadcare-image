@@ -1,1 +1,5 @@
-export { default as effects } from './effects';
+export * as effects from './effects';
+export { fixExternalImageSrc } from './fixExternalImageSrc';
+export { getEffectiveImageSize } from './getEffectiveImageSize';
+export { getSizes } from './getSizes';
+export { prepareUploadcareUrl } from './prepareUploadcareUrl';

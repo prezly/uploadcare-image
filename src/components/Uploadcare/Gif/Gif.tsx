@@ -1,14 +1,10 @@
-import type { FunctionComponent } from 'react';
-import React from 'react';
-
-import classNames from '../../../lib/classNames';
+import { classNames } from '../../../lib/classNames';
 import type { UploadcareImageProps } from '../../../types';
-import getEffectiveImageSize from '../lib/getEffectiveImageSize';
+import { getEffectiveImageSize } from '../lib/getEffectiveImageSize';
 
-import getGifPoster from './lib/getGifPoster';
-import getGifSources from './lib/getGifSources';
+import { getGifPoster, getGifSources } from './lib';
 
-const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
+export function UploadcareGif(props: UploadcareImageProps) {
     const {
         className,
         containerClassName,
@@ -60,6 +56,4 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
             ))}
         </video>
     );
-};
-
-export default UploadcareGif;
+}

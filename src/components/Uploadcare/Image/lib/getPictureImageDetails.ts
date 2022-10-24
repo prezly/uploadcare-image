@@ -1,11 +1,9 @@
 import type { Options } from '../../../../types';
-import effect from '../../lib/effects';
-import getSizes from '../../lib/getSizes';
-import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import { effects as effect, getSizes, prepareUploadcareUrl } from '../../lib';
 
-import getFormats from './getFormats';
+import { getFormats } from './getFormats';
 
-const getPictureImageDetails = (options: Options) => {
+export function getPictureImageDetails(options: Options) {
     const { imageDetails, filename, src, defaultFormat, effects = [], width } = options;
 
     const sizes = getSizes(options);
@@ -22,6 +20,4 @@ const getPictureImageDetails = (options: Options) => {
             effects: [...effects, effect.resize(width || sizes.default), effect.format(format)],
         }),
     };
-};
-
-export default getPictureImageDetails;
+}

@@ -1,6 +1,6 @@
 import type { Options, UploadcareEffect, UploadcareEffectOptions } from '../../../types';
 
-import fixExternalImageSrc from './fixExternalImageSrc';
+import { fixExternalImageSrc } from './fixExternalImageSrc';
 
 type PrepareUrlProps = UploadcareEffectOptions &
     Pick<Options, 'src' | 'filename' | 'effects'> & {
@@ -12,7 +12,7 @@ const UPLOADCARE_CDN_URL = 'https://cdn.uc.assets.prezly.com';
 const UPLOADCARE_MEDIA_PROXY_URL = 'https://proxy.uc.assets.prezly.com/';
 const UPLOADCARE_GIF2VIDEO_PATH = 'gif2video';
 
-const handleEffects = (options: PrepareUrlProps) => {
+function handleEffects(options: PrepareUrlProps) {
     const { effects, ...restOptions } = options;
 
     return effects.map((effect) => {
@@ -21,9 +21,9 @@ const handleEffects = (options: PrepareUrlProps) => {
         }
         return effect;
     });
-};
+}
 
-const prepareUploadcareMediaProxyUrl = (options: PrepareUrlProps) => {
+function prepareUploadcareMediaProxyUrl(options: PrepareUrlProps) {
     const { imageDetails, src, effects, isGif2Video } = options;
     const mergedEffects = [...(imageDetails?.effects || []), ...effects];
 
@@ -37,9 +37,9 @@ const prepareUploadcareMediaProxyUrl = (options: PrepareUrlProps) => {
     ]
         .filter(Boolean)
         .join('/');
-};
+}
 
-const prepareUploadcareUrl = (options: PrepareUrlProps) => {
+export function prepareUploadcareUrl(options: PrepareUrlProps) {
     const { imageDetails, src, filename, effects, isGif2Video } = options;
     const mergedEffects = [...(imageDetails?.effects || []), ...effects];
 
@@ -59,6 +59,4 @@ const prepareUploadcareUrl = (options: PrepareUrlProps) => {
     ]
         .filter(Boolean)
         .join('/');
-};
-
-export default prepareUploadcareUrl;
+}

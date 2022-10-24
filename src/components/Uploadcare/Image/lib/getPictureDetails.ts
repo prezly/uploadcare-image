@@ -1,11 +1,11 @@
 import type { Options, PictureDetails } from '../../../../types';
 
-import getPictureImageDetails from './getPictureImageDetails';
-import getPictureSources from './getPictureSources';
+import { getPictureImageDetails } from './getPictureImageDetails';
+import { getPictureSources } from './getPictureSources';
 
-const getPictureDetails = (options: Options): PictureDetails => ({
-    sources: getPictureSources(options),
-    image: getPictureImageDetails(options),
-});
-
-export default getPictureDetails;
+export function getPictureDetails(options: Options): PictureDetails {
+    return {
+        sources: getPictureSources(options),
+        image: getPictureImageDetails(options),
+    };
+}

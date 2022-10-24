@@ -1,12 +1,12 @@
 import type { BreakpointName, Options } from '../../../../types';
 import { MediaBreakpoints } from '../../constants';
-import getSizes from '../../lib/getSizes';
+import { getSizes } from '../../lib';
 
-import getFormats from './getFormats';
-import getImageMimeType from './getImageMimeType';
-import getSrcSet from './getSrcSet';
+import { getFormats } from './getFormats';
+import { getImageMimeType } from './getImageMimeType';
+import { getSrcSet } from './getSrcSet';
 
-const getPictureSources = (options: Options) => {
+export function getPictureSources(options: Options) {
     const {
         imageDetails,
         secondaryImageDetails,
@@ -48,6 +48,4 @@ const getPictureSources = (options: Options) => {
             };
         }),
     );
-};
-
-export default getPictureSources;
+}

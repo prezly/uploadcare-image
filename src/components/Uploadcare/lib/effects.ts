@@ -3,7 +3,7 @@ import type { ImageExtension, VideoExtension } from '../../../types';
 const MAX_WIDTH = 3000;
 const MAX_HEIGHT = 3000;
 
-const resize = (width: number | null = null, height: number | null = null) => {
+export function resize(width: number | null = null, height: number | null = null) {
     if (width == null && height === null) {
         throw new Error('At least one function argument has to be non-null');
     }
@@ -20,22 +20,19 @@ const resize = (width: number | null = null, height: number | null = null) => {
     }
 
     return `/resize/${safeWidth}x${safeHeight}/`;
-};
+}
 
-export const crop = (width: number, height: number) => {
+export function crop(width: number, height: number) {
     const safeWidth = Math.min(width, MAX_WIDTH);
     const safeHeight = Math.min(height, MAX_HEIGHT);
 
     return `/crop/${safeWidth}x${safeHeight}/`;
-};
+}
 
-export const format = (format: ImageExtension | VideoExtension | 'auto') => `/format/${format}/`;
+export function format(desiredFormat: ImageExtension | VideoExtension | 'auto') {
+    return `/format/${desiredFormat}/`;
+}
 
-export const grayscale = () => '/grayscale/';
-
-export default {
-    crop,
-    format,
-    grayscale,
-    resize,
-};
+export function grayscale() {
+    return '/grayscale/';
+}

@@ -1,1 +1,1 @@
-export { default } from './UploadcareSvg';
+export { UploadcareSvg } from './UploadcareSvg';

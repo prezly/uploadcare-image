@@ -1,6 +1,6 @@
 import type { ImageExtension, Options } from '../../../types';
 
-const getImageExtension = (options: Options) => {
+export function getImageExtension(options: Options) {
     const { src, imageDetails, filename } = options;
 
     const actualFileName = src || filename || imageDetails?.filename;
@@ -10,6 +10,4 @@ const getImageExtension = (options: Options) => {
 
     return actualFileName.split('?')[0].match(/\.(?<extension>\w+)$/)?.groups
         ?.extension as ImageExtension | null;
-};
-
-export default getImageExtension;
+}

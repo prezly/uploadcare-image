@@ -1,13 +1,12 @@
 import type { ImageExtension, Options } from '../../../../types';
-import effect from '../../lib/effects';
-import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import { effects as effect, prepareUploadcareUrl } from '../../lib';
 
 type Parameters = Pick<Options, 'imageDetails' | 'filename' | 'src' | 'effects'> & {
     size: number;
     format: ImageExtension;
 };
 
-const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: Parameters) => {
+export function getSrcSet({ imageDetails, filename, src, size, format, effects = [] }: Parameters) {
     const defaultImageUrl = prepareUploadcareUrl({
         width: size,
         imageDetails,
@@ -24,6 +23,4 @@ const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: 
     });
 
     return `${defaultImageUrl} 1x, ${retinaImageUrl} 2x`;
-};
-
-export default getSrcSet;
+}

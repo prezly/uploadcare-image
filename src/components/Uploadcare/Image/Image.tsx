@@ -1,13 +1,10 @@
-import type { FunctionComponent } from 'react';
-import React from 'react';
-
-import classNames from '../../../lib/classNames';
+import { classNames } from '../../../lib/classNames';
 import type { UploadcareImageProps } from '../../../types';
-import getEffectiveImageSize from '../lib/getEffectiveImageSize';
+import { getEffectiveImageSize } from '../lib';
 
 import { getPictureDetails } from './lib';
 
-const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
+export function UploadcareImage(props: UploadcareImageProps) {
     const {
         className,
         containerClassName,
@@ -59,6 +56,4 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
             />
         </picture>
     );
-};
-
-export default UploadcareImage;
+}
