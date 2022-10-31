@@ -1,5 +1,5 @@
 import { Options, VideoExtension } from '../../../../types';
-import effect from '../../lib/effects';
+import { effect } from '../../lib';
 import getSizes from '../../lib/getSizes';
 import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
 

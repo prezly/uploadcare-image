@@ -1,1 +1,1 @@
-export { default as effects } from './effects';
+export * as effect from './effects';

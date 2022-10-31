@@ -33,7 +33,7 @@ export type UploadcareImageDetails = {
     version: number;
     filename: string;
     size: number;
-    mime_type: string,
+    mime_type: string;
     original_width: number;
     original_height: number;
     effects: Array<string>;
@@ -127,3 +127,12 @@ export type PictureDetails = {
         src: string;
     };
 };
+
+export type Quality =
+    | 'smart'
+    | 'smart_retina'
+    | 'normal'
+    | 'better'
+    | 'best'
+    | 'lighter'
+    | 'lightest';
