@@ -29,11 +29,20 @@ export function crop(width: number, height: number) {
     return `/crop/${safeWidth}x${safeHeight}/`;
 }
 
-export function progressive(value: boolean = true) {
-    return value ? `/progressive/yes/` : '';
+export function progressive() {
+    return `/progressive/yes/`;
 }
 
-export function quality(quality: 'smart' = 'smart') {
+export type Quality =
+    | 'smart'
+    | 'smart_retina'
+    | 'normal'
+    | 'better'
+    | 'best'
+    | 'lighter'
+    | 'lightest';
+
+export function quality(quality: Quality = 'smart') {
     return `/quality/${quality}/`;
 }
 
