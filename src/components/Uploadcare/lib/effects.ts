@@ -1,4 +1,4 @@
-import { ImageExtension, VideoExtension } from '../../../types';
+import { ImageExtension, Quality, VideoExtension } from '../../../types';
 
 const MAX_WIDTH = 3000;
 const MAX_HEIGHT = 3000;
@@ -32,15 +32,6 @@ export function crop(width: number, height: number) {
 export function progressive() {
     return `/progressive/yes/`;
 }
-
-export type Quality =
-    | 'smart'
-    | 'smart_retina'
-    | 'normal'
-    | 'better'
-    | 'best'
-    | 'lighter'
-    | 'lightest';
 
 export function quality(quality: Quality = 'smart') {
     return `/quality/${quality}/`;
