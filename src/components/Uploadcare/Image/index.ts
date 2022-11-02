@@ -1,1 +1,1 @@
-export { default } from './Image';
+export { UploadcareImage } from './Image';

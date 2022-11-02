@@ -1,11 +1,12 @@
+import type { Options, Sizes } from '../../../../types';
 import { MediaBreakpoints } from '../../constants';
-import { Options, Sizes } from '../../../../types';
-import getSizes from '../../lib/getSizes';
-import getImageMimeType from './getImageMimeType';
-import getSrcSet from './getSrcSet';
-import getFormats from './getFormats';
+import { getSizes } from '../../lib/getSizes';
 
-const getPictureSources = (options: Options) => {
+import { getFormats } from './getFormats';
+import { getImageMimeType } from './getImageMimeType';
+import { getSrcSet } from './getSrcSet';
+
+export function getPictureSources(options: Options) {
     const { imageDetails, filename, src, effects } = options;
 
     const formats = getFormats(options);
@@ -20,6 +21,4 @@ const getPictureSources = (options: Options) => {
             srcSet: getSrcSet({ imageDetails, filename, src, size: size!, effects, format }),
         }));
     });
-};
-
-export default getPictureSources;
+}

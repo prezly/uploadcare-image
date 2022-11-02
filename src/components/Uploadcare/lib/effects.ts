@@ -1,4 +1,4 @@
-import { ImageExtension, Quality, VideoExtension } from '../../../types';
+import type { ImageExtension, Quality, VideoExtension } from '../../../types';
 
 const MAX_WIDTH = 3000;
 const MAX_HEIGHT = 3000;
@@ -33,12 +33,12 @@ export function progressive() {
     return `/progressive/yes/`;
 }
 
-export function quality(quality: Quality = 'smart') {
-    return `/quality/${quality}/`;
+export function quality(desiredQuality: Quality = 'smart') {
+    return `/quality/${desiredQuality}/`;
 }
 
-export function format(format: ImageExtension | VideoExtension | 'auto') {
-    return `/format/${format}/`;
+export function format(desiredFormat: ImageExtension | VideoExtension | 'auto') {
+    return `/format/${desiredFormat}/`;
 }
 
 export function grayscale() {

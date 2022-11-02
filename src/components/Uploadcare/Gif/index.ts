@@ -1,1 +1,1 @@
-export { default } from './Gif';
+export { UploadcareGif } from './Gif';

@@ -1,13 +1,13 @@
-import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import type { ImageExtension, Options } from '../../../../types';
 import { effect } from '../../lib';
-import { ImageExtension, Options } from '../../../../types';
+import { prepareUploadcareUrl } from '../../lib/prepareUploadcareUrl';
 
 type Parameters = Pick<Options, 'imageDetails' | 'filename' | 'src' | 'effects'> & {
     size: number;
     format: ImageExtension;
 };
 
-const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: Parameters) => {
+export function getSrcSet({ imageDetails, filename, src, size, format, effects = [] }: Parameters) {
     const defaultImageUrl = prepareUploadcareUrl({
         width: size,
         imageDetails,
@@ -36,6 +36,4 @@ const getSrcSet = ({ imageDetails, filename, src, size, format, effects = [] }: 
     });
 
     return `${defaultImageUrl} 1x, ${retinaImageUrl} 2x`;
-};
-
-export default getSrcSet;
+}
