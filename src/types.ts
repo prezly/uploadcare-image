@@ -153,3 +153,12 @@ export type PictureDetails = {
         src: string;
     };
 };
+
+export type Quality =
+    | 'smart'
+    | 'smart_retina'
+    | 'normal'
+    | 'better'
+    | 'best'
+    | 'lighter'
+    | 'lightest';

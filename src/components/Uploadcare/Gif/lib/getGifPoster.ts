@@ -1,5 +1,5 @@
 import type { Options } from '../../../../types';
-import { effects as effect, getSizes, prepareUploadcareUrl } from '../../lib';
+import { effect, getSizes, prepareUploadcareUrl } from '../../lib';
 
 export function getGifPoster(options: Options) {
     const { imageDetails, filename, src, effects = [], width } = options;

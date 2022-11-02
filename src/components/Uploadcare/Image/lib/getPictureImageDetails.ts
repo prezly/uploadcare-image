@@ -1,5 +1,5 @@
 import type { Options } from '../../../../types';
-import { effects as effect, getSizes, prepareUploadcareUrl } from '../../lib';
+import { effect, getSizes, prepareUploadcareUrl } from '../../lib';
 
 import { getFormats } from './getFormats';
 
@@ -17,7 +17,13 @@ export function getPictureImageDetails(options: Options) {
             imageDetails,
             src,
             filename,
-            effects: [...effects, effect.resize(width || sizes.default), effect.format(format)],
+            effects: [
+                ...effects,
+                effect.resize(width || sizes.default),
+                effect.format(format),
+                effect.progressive(),
+                effect.quality(),
+            ],
         }),
     };
 }

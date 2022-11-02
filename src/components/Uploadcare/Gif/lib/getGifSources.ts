@@ -1,5 +1,5 @@
 import type { Options, VideoExtension } from '../../../../types';
-import { effects as effect, getSizes, prepareUploadcareUrl } from '../../lib';
+import { effect, getSizes, prepareUploadcareUrl } from '../../lib';
 
 const VIDEO_FORMATS: VideoExtension[] = ['webm', 'mp4'];
 
