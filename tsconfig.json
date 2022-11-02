@@ -15,7 +15,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "outDir": "./build",
     "rootDir": "./src",
     "typeRoots": ["./node_modules/@types", "./src/@types"]
