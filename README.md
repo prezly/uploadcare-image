@@ -25,7 +25,7 @@ npm install --save-dev @types/react @types/react-dom
 Import the default component:
 
 ```ts
-import { Image } from '@prezly/uploadcare-image';
+import Image from '@prezly/uploadcare-image';
 ```
 
 Import base package styles globally in the root of your application (or directly in your stylesheet):
