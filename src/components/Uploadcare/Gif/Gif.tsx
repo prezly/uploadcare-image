@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
-import { UploadcareImageProps } from '../../../types';
-import classNames from '../../../lib/classNames';
-import getEffectiveImageSize from '../lib/getEffectiveImageSize';
-import getGifSources from './lib/getGifSources';
-import getGifPoster from './lib/getGifPoster';
+import { classNames } from '../../../lib/classNames';
+import type { UploadcareImageProps } from '../../../types';
+import { getEffectiveImageSize } from '../lib/getEffectiveImageSize';
 
-const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
+import { getGifPoster } from './lib/getGifPoster';
+import { getGifSources } from './lib/getGifSources';
+
+export function UploadcareGif(props: UploadcareImageProps) {
     const {
         className,
         containerClassName,
@@ -24,17 +24,17 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
         layout === 'fixed'
             ? undefined
             : {
-                objectFit,
-                objectPosition,
-                maxHeight: height,
-                maxWidth: width,
-                minHeight: height,
-                minWidth: width,
-            };
+                  objectFit,
+                  objectPosition,
+                  maxHeight: height,
+                  maxWidth: width,
+                  minHeight: height,
+                  minWidth: width,
+              };
     const videoSize = getEffectiveImageSize(width, height, imageDetails);
 
     return (
-        <video 
+        <video
             {...videoSize}
             className={classNames(
                 'uploadcare-image__gif',
@@ -43,9 +43,9 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
             )}
             poster={poster}
             style={imageStyle}
-            autoPlay 
-            loop 
-            muted 
+            autoPlay
+            loop
+            muted
             playsInline
         >
             {sources.map((source) => (
@@ -57,6 +57,4 @@ const UploadcareGif: FunctionComponent<UploadcareImageProps> = (props) => {
             ))}
         </video>
     );
-};
-
-export default UploadcareGif;
+}

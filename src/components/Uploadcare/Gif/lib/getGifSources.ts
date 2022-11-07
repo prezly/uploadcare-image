@@ -1,11 +1,11 @@
-import { Options, VideoExtension } from '../../../../types';
+import type { Options, VideoExtension } from '../../../../types';
 import { effect } from '../../lib';
-import getSizes from '../../lib/getSizes';
-import prepareUploadcareUrl from '../../lib/prepareUploadcareUrl';
+import { getSizes } from '../../lib/getSizes';
+import { prepareUploadcareUrl } from '../../lib/prepareUploadcareUrl';
 
 const VIDEO_FORMATS: VideoExtension[] = ['webm', 'mp4'];
 
-const getGifSources = (options: Options) => {
+export function getGifSources(options: Options) {
     const { imageDetails, filename, src, effects = [], width } = options;
 
     const sizes = getSizes(options);
@@ -22,6 +22,4 @@ const getGifSources = (options: Options) => {
             effects: [...effects, effect.format(format)],
         }),
     }));
-};
-
-export default getGifSources;
+}

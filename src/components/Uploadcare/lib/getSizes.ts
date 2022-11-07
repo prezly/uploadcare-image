@@ -1,4 +1,4 @@
-import { Options, SizesWithDefault } from '../../../types';
+import type { Options, SizesWithDefault } from '../../../types';
 import { Breakpoint } from '../constants';
 
 const DEFAULT_SIZES: SizesWithDefault = {
@@ -9,19 +9,19 @@ const DEFAULT_SIZES: SizesWithDefault = {
     default: Breakpoint.MD,
 };
 
-const getSizes = (options: Options): SizesWithDefault => {
+export function getSizes(options: Options): SizesWithDefault {
     const { sizes, width } = options;
-
-    if (!sizes && !width) {
-        return DEFAULT_SIZES;
-    }
 
     if (typeof width === 'number') {
         return { default: width };
     }
 
-    if (!sizes!.hasOwnProperty('default')) {
-        const allSizes = Object.values(sizes!).filter(
+    if (!sizes) {
+        return DEFAULT_SIZES;
+    }
+
+    if (!('default' in sizes)) {
+        const allSizes = Object.values(sizes).filter(
             (size) => typeof size === 'number',
         ) as Array<number>;
         return {
@@ -31,6 +31,4 @@ const getSizes = (options: Options): SizesWithDefault => {
     }
 
     return sizes as SizesWithDefault;
-};
-
-export default getSizes;
+}

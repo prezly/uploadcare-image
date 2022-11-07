@@ -1,6 +1,6 @@
-import { ImageExtension } from '../../../../types';
+import type { ImageExtension } from '../../../../types';
 
-const getImageMimeType = (extension: ImageExtension) => {
+export function getImageMimeType(extension: ImageExtension) {
     switch (extension) {
         case 'png':
             return 'image/png';
@@ -11,6 +11,4 @@ const getImageMimeType = (extension: ImageExtension) => {
         default:
             throw new Error(`${extension} MIME type is unknown`);
     }
-};
-
-export default getImageMimeType;
+}

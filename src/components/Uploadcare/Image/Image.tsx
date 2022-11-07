@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from 'react';
-import { UploadcareImageProps } from '../../../types';
-import { getPictureDetails } from './lib';
-import classNames from '../../../lib/classNames';
-import getEffectiveImageSize from '../lib/getEffectiveImageSize';
+import { classNames } from '../../../lib/classNames';
+import type { UploadcareImageProps } from '../../../types';
+import { getEffectiveImageSize } from '../lib/getEffectiveImageSize';
 
-const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
+import { getPictureDetails } from './lib';
+
+export function UploadcareImage(props: UploadcareImageProps) {
     const {
         className,
         containerClassName,
@@ -49,9 +49,9 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
             <img
                 {...imageSize}
                 className={classNames(
-                    className, 
-                    'uploadcare-image__image', 
-                    layout === 'fill' && 'uploadcare-image__layout-fill'
+                    className,
+                    'uploadcare-image__image',
+                    layout === 'fill' && 'uploadcare-image__layout-fill',
                 )}
                 loading={lazy ? 'lazy' : 'eager'}
                 alt={altText}
@@ -60,6 +60,4 @@ const UploadcareImage: FunctionComponent<UploadcareImageProps> = (props) => {
             />
         </picture>
     );
-};
-
-export default UploadcareImage;
+}

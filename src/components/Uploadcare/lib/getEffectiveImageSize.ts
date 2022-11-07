@@ -1,12 +1,12 @@
-import { UploadcareImageDetails } from '../../../types';
+import type { UploadcareImageDetails } from '../../../types';
 
 const FALLBACK_SIZE = 5;
 
-const getEffectiveWidth = (
+function getEffectiveWidth(
     width: number | undefined,
     height: number | undefined,
     imageDetails?: UploadcareImageDetails,
-) => {
+) {
     const aspectRatio = imageDetails
         ? imageDetails.original_width / imageDetails.original_height
         : null;
@@ -20,13 +20,13 @@ const getEffectiveWidth = (
     }
 
     return imageDetails?.original_width || FALLBACK_SIZE;
-};
+}
 
-const getEffectiveHeight = (
+function getEffectiveHeight(
     width: number | undefined,
     height: number | undefined,
     imageDetails?: UploadcareImageDetails,
-) => {
+) {
     const aspectRatio = imageDetails
         ? imageDetails.original_width / imageDetails.original_height
         : null;
@@ -40,15 +40,15 @@ const getEffectiveHeight = (
     }
 
     return imageDetails?.original_height || FALLBACK_SIZE;
-};
+}
 
-const getEffectiveImageSize = (
+export function getEffectiveImageSize(
     width: number | undefined,
     height: number | undefined,
     imageDetails?: UploadcareImageDetails,
-) => ({
-    width: getEffectiveWidth(width, height, imageDetails),
-    height: getEffectiveHeight(width, height, imageDetails),
-});
-
-export default getEffectiveImageSize;
+) {
+    return {
+        width: getEffectiveWidth(width, height, imageDetails),
+        height: getEffectiveHeight(width, height, imageDetails),
+    };
+}

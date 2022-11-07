@@ -1,1 +1,1 @@
-export { default as getPictureDetails } from './getPictureDetails';
+export { getPictureDetails } from './getPictureDetails';
